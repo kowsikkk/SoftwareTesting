@@ -1,0 +1,151 @@
+--------------Test case table column
+
+⦁	testcase id | testcase name | test steps | test data | expected result | actual result | status | Priority
+
+
+--------------level of testing
+
+1️⃣ Unit Testing
+
+ 	Performed on individual components or modules of the software.
+
+ 	Ensures each function or code block works correctly.
+
+ 	Usually done by developers.
+
+ 	📌 Example: Testing a login function separately.
+
+2️⃣ Integration Testing
+
+ 	Tests how multiple modules work together as a group.
+
+ 	Ensures data flow and interactions between modules are correct.
+
+ 	📌 Example: Checking if login module correctly connects to database and user dashboard.
+
+3️⃣ System Testing
+
+ 	Tests the complete and fully integrated software system.
+
+ 	Ensures the entire system works according to requirements.
+
+ 	📌 Example: Testing all features like login, profile update, logout, etc.
+ 
+4️⃣ Acceptance Testing
+
+ 	Conducted by end users or clients.
+
+ 	Checks if the system meets business needs and is ready for deployment.
+
+ 	📌 Example: Client verifies if the software works as expected before final approval.
+
+
+-----------------type of testing
+
+Type			Focus Area						Who Performs
+
+Functional Testing	Features/Requirements					Testers
+Non-Functional Testing	Performance, security, usability			Testers
+Manual Testing		Human-based testing					Testers
+Automation Testing	Tool/script-based testing				Testers/Automation engineers
+White Box Testing	Internal code working					Developers
+Black Box Testing	External behavior					Testers
+Grey Box Testing	Partial internal logic + external behavior		Testers
+
+
+---
+
+| Type of Testing    | Performed By                  | Stage                      | Purpose                                       |
+| ------------------ | ----------------------------- | -------------------------- | --------------------------------------------- |
+| Regression Testing | Testers                       | After updates or bug fixes | Ensure existing features still work           |
+| Smoke Testing      | Testers                       | After new build            | Quick check of major function                 |
+| Alpha Testing      | Internal team (QA/Developers) | Before beta release        | Identify major bugs in controlled environment |
+| Beta Testing       | Real users                    | Before final release       | Collect feedback and real-world issues        |
+
+
+
+selenium
+
+⦁	driver -
+ driver.get("https/www...")
+
+⦁	locators -
+ id,class,xpath,css selector,name,tagname,
+ driver.findElement(By.xpath("//input[@name='username']")).sendKeys("Admin");
+ driver.findElement(By.xpath("//button[@type='submit']")).click();
+
+⦁	//div[contains(text(),'What can I help with?')]
+⦁	//div[@class='p']
+
+⦁	driver.navigate().to("https://facebook.com");
+
+⦁	driver.navigate().back();
+
+⦁	driver.navigate().forward();
+
+⦁	driver.navigate().refresh();
+
+
+⦁	driver.switchTo().alert().getText();
+
+⦁	driver.switchTo().alert().accept();
+
+⦁	driver.switchTo().alert().dismiss();
+
+⦁	driver.switchTo().alert().sendKeys("Hello");
+
+
+
+⦁	 	String parentID = driver.getWindowHandle();
+
+ 	Set<String> allIDs = driver.getWindowHandles();
+
+ 	for (String id : allIDs) {
+    		if (!id.equals(parentID)) {
+    			driver.switchTo().window(id);
+    		}
+ 	}
+
+⦁	WebElement element = driver.findElement(By.id("target"));
+  ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+
+
+
+
+⦁	 	Actions action = new Actions(driver);
+        WebElement menu = driver.findElement(By.xpath("//*[@id=\"main-container\"]/div/div[1]/div[2]/div[1]/div/div[2]/div[2]/div/div[1]/div[1]"));
+        action.moveToElement(menu).perform();
+
+
+
+⦁	 	String fileName = "spicejet_home";
+        TakesScreenshot ts=(TakesScreenshot) driver;
+        File source=ts.getScreenshotAs(OutputType.FILE);
+        File destination=new File("./screenshots/"+fileName+".png");
+        FileUtils.copyFile(source, destination);
+
+
+
+⦁	 	Properties obj= new Properties();
+        FileInputStream fis= new FileInputStream("./config/config.properties");
+        obj.load(fis);
+        String prop1= obj.getProperty("course");
+        System.out.println(prop1);
+
+
+
+⦁	 	FileInputStream fis=new FileInputStream("./data/data.xlsx");
+        Workbook workbook =new XSSFWorkbook(fis);
+        Sheet sheet = workbook.getSheetAt(0);
+        Row row=sheet.getRow(0);
+        String data=row.getCell(0).getStringCellValue();
+
+
+⦁	 	ExtentSparkReporter reporter=new ExtentSparkReporter("./reports/reporter.html");
+        report=new ExtentReports();
+        report.attachReporter(reporter);
+
+
+
+⦁	     WebElement child = driver.findElement(By.xpath("//span[text()='vivo V25 Pro 5G (Sailing Blue, 128 GB) (8 GB RAM)']"));
+        action.keyDown(Keys.CONTROL).click(child).keyUp(Keys.CONTROL).build().perform(); 
